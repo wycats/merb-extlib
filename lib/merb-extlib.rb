@@ -1,16 +1,20 @@
-corelib_path = File.join(File.dirname(__FILE__))
-$LOAD_PATH.unshift corelib_path unless $LOAD_PATH.include?(corelib_path)
+require "pathname"
 
-require "merb-extlib/version"
+# for Pathname#/
+require File.expand_path(File.join(File.dirname(__FILE__), 'merb-extlib', 'pathname'))
 
-require "merb-extlib/string"
-require "merb-extlib/time"
-require "merb-extlib/class"
-require "merb-extlib/hash"
-require "merb-extlib/mash"
-require "merb-extlib/object"
-require "merb-extlib/object_space"
-require "merb-extlib/rubygems"
-require "merb-extlib/set"
-require "merb-extlib/virtual_file"
-require "merb-extlib/logger"
+dir = Pathname(__FILE__).dirname.expand_path / 'merb-extlib'
+
+require dir / "version"
+
+require dir / "string"
+require dir / "time"
+require dir / "class"
+require dir / "hash"
+require dir / "mash"
+require dir / "object"
+require dir / "object_space"
+require dir / "rubygems"
+require dir / "set"
+require dir / "virtual_file"
+require dir / "logger"
